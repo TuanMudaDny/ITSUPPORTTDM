@@ -122,6 +122,210 @@
                             <img class="img-responsive" src="assets/images/product-3.jpg" alt="product">
                             <h3 class="product-title">Toy for kids</h3>
                         </div>
+
+                    <!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tombol Combo Box Data Aset</title>
+<style>
+  /* Latar belakang contoh agar tombol terlihat kontras */
+  body {
+    background-color: #161618;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 30px;
+    color: #e0e0e0;
+  }
+
+  /* Container utama dropdown */
+  .dropdown-aset {
+    position: relative;
+    display: inline-block;
+  }
+
+  /* Desain Tombol Utama 3D (Sesuai spesifikasi ukuran & tema) */
+  .btn-aset {
+    height: 26px; /* Tinggi 24px - 28px */
+    padding: 0 10px; /* Padding horizontal 8px - 12px */
+    font-size: 12px; /* Ukuran teks 12px - 13px */
+    font-weight: 600;
+    color: #ffffff;
+    border-radius: 5px; /* Kelengkungan sudut 4px - 6px */
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    
+    /* Efek 3D Metalik Gelap & Aksen Merah */
+    background: linear-gradient(180deg, #323236 0%, #1c1c1f 100%);
+    border: 1px solid #48484e;
+    border-bottom: 2px solid #0e0e10;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    transition: all 0.15s ease;
+  }
+
+  /* Efek saat kursor diarahkan (Hover) */
+  .btn-aset:hover {
+    border-color: #d93829;
+    box-shadow: 0 0 8px rgba(217, 56, 41, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  /* Efek saat tombol ditekan */
+  .btn-aset:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+  }
+
+  /* Kotak Menu Dropdown Utama */
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    min-width: 170px;
+    background-color: #1f1f23;
+    border: 1px solid #3a3a40;
+    border-radius: 5px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    padding: 4px 0;
+  }
+
+  /* Menampilkan menu saat aktif */
+  .dropdown-aset.show .dropdown-menu {
+    display: block;
+  }
+
+  /* Item di dalam dropdown */
+  .dropdown-item {
+    position: relative;
+    padding: 6px 12px;
+    font-size: 12px;
+    color: #e0e0e0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.15s;
+  }
+
+  .dropdown-item:hover {
+    background-color: #2d2d33;
+    color: #ff5242;
+  }
+
+  /* Submenu (Muncul di samping kanan saat item di-hover) */
+  .submenu {
+    display: none;
+    position: absolute;
+    top: -5px;
+    left: 100%;
+    min-width: 180px;
+    max-height: 220px; /* Bisa di-scroll jika datanya banyak */
+    overflow-y: auto;
+    background-color: #1f1f23;
+    border: 1px solid #3a3a40;
+    border-radius: 5px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.8);
+    padding: 4px 0;
+  }
+
+  .dropdown-item:hover > .submenu {
+    display: block;
+  }
+
+  .submenu a {
+    display: block;
+    padding: 6px 12px;
+    font-size: 12px;
+    color: #cccccc;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+
+  .submenu a:hover {
+    background-color: #8f1d14;
+    color: #ffffff;
+  }
+
+  /* Kustomisasi Scrollbar untuk daftar yang panjang */
+  .submenu::-webkit-scrollbar {
+    width: 5px;
+  }
+  .submenu::-webkit-scrollbar-thumb {
+    background: #48484e;
+    border-radius: 3px;
+  }
+</style>
+</head>
+<body>
+
+  <!-- STRUKTUR TOMBOL COMBO BOX -->
+  <div class="dropdown-aset" id="dropdownAset">
+    <button class="btn-aset" onclick="toggleDropdown()">
+      <span>DATA ASET</span>
+      <span style="font-size: 9px;">▼</span>
+    </button>
+
+    <div class="dropdown-menu">
+      
+      <!-- Pilihan 1: Kode Cabang -->
+      <div class="dropdown-item">
+        <span>Kode Cabang</span>
+        <span style="font-size: 10px;">▶</span>
+        <div class="submenu">
+          <!-- Tambahkan atau ubah daftar Kode Cabang di bawah ini -->
+          <a href="#cabang-tdm01" onclick="pilihData('Kode Cabang: TDM-01')">TDM-01 (Pusat)</a>
+          <a href="#cabang-tdm02" onclick="pilihData('Kode Cabang: TDM-02')">TDM-02 (Cabang A)</a>
+          <a href="#cabang-tdm03" onclick="pilihData('Kode Cabang: TDM-03')">TDM-03 (Cabang B)</a>
+          <a href="#cabang-tdm04" onclick="pilihData('Kode Cabang: TDM-04')">TDM-04 (Cabang C)</a>
+          <a href="#cabang-tdm05" onclick="pilihData('Kode Cabang: TDM-05')">TDM-05 (Cabang D)</a>
+        </div>
+      </div>
+
+      <!-- Pilihan 2: MD (Computer Name) -->
+      <div class="dropdown-item">
+        <span>MD</span>
+        <span style="font-size: 10px;">▶</span>
+        <div class="submenu">
+          <!-- Tambahkan atau ubah daftar Computer Name di bawah ini -->
+          <a href="#pc-it01" onclick="pilihData('Computer: PC-TDM-IT01')">PC-TDM-IT01</a>
+          <a href="#pc-fin02" onclick="pilihData('Computer: PC-TDM-FIN02')">PC-TDM-FIN02</a>
+          <a href="#pc-hrd03" onclick="pilihData('Computer: PC-TDM-HRD03')">PC-TDM-HRD03</a>
+          <a href="#nb-mgr01" onclick="pilihData('Computer: NB-TDM-MGR01')">NB-TDM-MGR01</a>
+          <a href="#srv-main" onclick="pilihData('Computer: SRV-TDM-MAIN')">SRV-TDM-MAIN</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // Fungsi membuka/menutup menu saat tombol diklik
+    function toggleDropdown() {
+      document.getElementById("dropdownAset").classList.toggle("show");
+    }
+
+    // Menutup menu jika user mengklik di luar area tombol
+    window.onclick = function(event) {
+      if (!event.target.closest('.dropdown-aset')) {
+        var dropdowns = document.getElementsByClassName("dropdown-aset");
+        for (var i = 0; i < dropdowns.length; i++) {
+          dropdowns[i].classList.remove('show');
+        }
+      }
+    }
+
+    // Contoh aksi ketika salah satu item dipilih (bisa diganti dengan link URL asli)
+    function pilihData(namaItem) {
+      console.log("Anda memilih: " + namaItem);
+      // alert("Membuka data: " + namaItem); // Hapus tanda '//' di depan jika ingin memunculkan pop-up
+    }
+  </script>
+
+</body>
+</html>
                 
                             
     </body>
