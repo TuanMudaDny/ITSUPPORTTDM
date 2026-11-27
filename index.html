@@ -22,6 +22,16 @@
             --button-border: #57515a;
         }
 
+        .site-logo {
+            text-align: center;
+        }
+
+        .site-logo img {
+            display: inline-block;
+            transform: scale(.7);
+            transform-origin: center top;
+        }
+
         button,
         .btn,
         .btn-robot,
@@ -169,10 +179,12 @@
     <div class="site-header-bg">
         <div class="container">
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-12 site-logo">
                     <a href="index.html"><img src="assets/images/LOGO TDM(2).png" alt="IT Support TDM logo"></a>
                 </div>
-                <div class="col-sm-3 col-sm-offset-3 text-right">
+            </div>
+            <div class="row">
+                <div class="col-sm-3 col-sm-offset-9 text-right">
                     <span class="ion-android-cart" aria-hidden="true"></span> 0 products
                     <form role="search">
                         <div class="input-group">
