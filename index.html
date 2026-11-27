@@ -1,332 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IT Support TDM</title>
 
-        <title>Robot</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,500,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:400,300,700" rel="stylesheet" type="text/css">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/magnific-popup.css" rel="stylesheet">
+    <link href="assets/css/owl.carousel.css" rel="stylesheet">
+    <link href="assets/css/owl.carousel.theme.min.css" rel="stylesheet">
+    <link href="assets/css/ionicons.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
 
-        <!-- CSS -->
+    <style>
+        /* Shared raised, dark-metal button treatment inspired by the reference image. */
+        :root {
+            --button-red: #ff514b;
+            --button-border: #57515a;
+        }
 
-        <!-- google fonts -->
-        <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+        button,
+        .btn,
+        .btn-robot,
+        .navbar-toggle,
+        .btn-aset {
+            color: var(--button-red) !important;
+            font-weight: 700;
+            text-shadow: 0 0 5px rgba(255, 54, 49, .85), 0 0 13px rgba(255, 30, 25, .48);
+            background:
+                repeating-linear-gradient(125deg, rgba(255,255,255,.025) 0 2px, transparent 2px 5px),
+                linear-gradient(180deg, #39343d 0%, #211e25 42%, #111014 100%) !important;
+            border: 2px solid var(--button-border) !important;
+            border-bottom: 5px solid #09080b !important;
+            border-radius: 15px !important;
+            box-shadow:
+                0 7px 12px rgba(0,0,0,.58),
+                inset 0 2px 2px rgba(255,255,255,.24),
+                inset 0 -3px 5px rgba(0,0,0,.78),
+                0 0 10px rgba(255,55,49,.12);
+            transition: transform .14s ease, box-shadow .14s ease, border-color .14s ease, filter .14s ease;
+        }
 
-        <!-- files -->
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-        <link href="assets/css/magnific-popup.css" rel="stylesheet">
-        <link href="assets/css/owl.carousel.css" rel="stylesheet">
-        <link href="assets/css/owl.carousel.theme.min.css" rel="stylesheet">
-        <link href="assets/css/ionicons.css" rel="stylesheet">
-        <link href="assets/css/main.css" rel="stylesheet">
+        button:hover,
+        .btn:hover,
+        .btn-robot:hover,
+        .navbar-toggle:hover,
+        .btn-aset:hover {
+            color: #ff7771 !important;
+            border-color: #9c4549 !important;
+            filter: brightness(1.12);
+            box-shadow:
+                0 8px 16px rgba(0,0,0,.68),
+                inset 0 2px 3px rgba(255,255,255,.28),
+                inset 0 -3px 5px rgba(0,0,0,.78),
+                0 0 16px rgba(255,45,40,.38);
+        }
 
-        <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
-    </head>
-    <body>
+        button:active,
+        .btn:active,
+        .btn-robot:active,
+        .navbar-toggle:active,
+        .btn-aset:active {
+            transform: translateY(3px);
+            border-bottom-width: 2px !important;
+            box-shadow: 0 2px 5px rgba(0,0,0,.7), inset 0 2px 5px rgba(0,0,0,.65);
+        }
 
-    <!-- Site Header -->
-        <div class="site-header-bg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <a href="index.html"><img src="assets/images/LOGO TDM(2).png" alt="logo"></a>
+        button:focus-visible,
+        .btn:focus-visible,
+        .btn-aset:focus-visible {
+            outline: 2px solid #ff7771;
+            outline-offset: 3px;
+        }
+
+        .dropdown-aset {
+            position: relative;
+            display: inline-block;
+            margin: 24px 0;
+        }
+
+        .btn-aset {
+            min-height: 48px;
+            padding: 0 22px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            letter-spacing: .04em;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            min-width: 190px;
+            z-index: 1000;
+            padding: 5px 0;
+            color: #e0e0e0;
+            background: #1d1b20;
+            border: 1px solid #49434c;
+            border-radius: 8px;
+            box-shadow: 0 8px 18px rgba(0,0,0,.75);
+        }
+
+        .dropdown-aset.show .dropdown-menu { display: block; }
+
+        .dropdown-item {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 9px 14px;
+            color: #e0e0e0;
+            cursor: pointer;
+        }
+
+        .dropdown-item:hover,
+        .dropdown-item:focus-within {
+            color: #ff7771;
+            background: #302b32;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            top: -5px;
+            left: 100%;
+            min-width: 190px;
+            max-height: 220px;
+            overflow-y: auto;
+            padding: 4px 0;
+            background: #1d1b20;
+            border: 1px solid #49434c;
+            border-radius: 8px;
+            box-shadow: 0 8px 18px rgba(0,0,0,.75);
+        }
+
+        .dropdown-item:hover > .submenu,
+        .dropdown-item:focus-within > .submenu { display: block; }
+
+        .submenu a {
+            display: block;
+            padding: 8px 12px;
+            color: #ddd;
+            text-decoration: none;
+        }
+
+        .submenu a:hover,
+        .submenu a:focus {
+            color: #fff;
+            background: #8f1d14;
+        }
+
+        .submenu::-webkit-scrollbar { width: 5px; }
+        .submenu::-webkit-scrollbar-thumb { background: #57515a; border-radius: 3px; }
+
+        @media (max-width: 767px) {
+            .submenu { left: auto; right: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="site-header-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <a href="index.html"><img src="assets/images/LOGO TDM(2).png" alt="IT Support TDM logo"></a>
+                </div>
+                <div class="col-sm-3 col-sm-offset-3 text-right">
+                    <span class="ion-android-cart" aria-hidden="true"></span> 0 products
+                    <form role="search">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search" aria-label="Search">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default btn-robot" type="submit">Search</button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="header" class="main-header">
+        <div class="container">
+            <div class="row">
+                <nav class="navbar navbar-default" aria-label="Main navigation">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#site-nav-bar" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
                     </div>
-                    <div class="col-sm-3 col-sm-offset-3 text-right">
-                        <span class="ion-android-cart"></span> 0 products
-                        <form>
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default btn-robot" type="button">Search</button>
-                                </span>
-                            </div><!-- /input-group -->
-                        </form>
+                    <div class="collapse navbar-collapse" id="site-nav-bar">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="shop.html">Shop</a></li>
+                            <li><a href="faq.html">FAQ</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="intro row">
+                <div class="overlay"></div>
+                <div class="col-sm-6 col-sm-offset-6">
+                    <h2 class="header-quote">IT SUPPORT</h2>
+                    <p>TUNAS DWIPA MATRA</p>
+                    <h1 class="header-title">Robot<br><span class="thin">Factory</span></h1>
+                </div>
+            </div>
+        </div>
+        <div class="nutral"></div>
+    </section>
+
+    <section id="product" class="product">
+        <div class="container section-bg">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="title-box">
+                        <h2 class="title">Welcome to our <span>IT SUPPORT TDM</span></h2>
+                        <a href="shop.html" class="btn btn-default btn-robot">View products</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="porduct-box">
+                        <img class="img-responsive" src="assets/images/product-1.jpg" alt="Space robot">
+                        <h3 class="product-title">Space robot</h3>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="porduct-box">
+                        <img class="img-responsive" src="assets/images/product-2.jpg" alt="Sports robot">
+                        <h3 class="product-title">Sports robot</h3>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="porduct-box">
+                        <img class="img-responsive" src="assets/images/product-3.jpg" alt="Toy for kids">
+                        <h3 class="product-title">Toy for kids</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dropdown-aset" id="dropdownAset">
+                <button class="btn-aset" type="button" aria-expanded="false" aria-controls="menuAset" onclick="toggleDropdown()">
+                    <span>DATA ASET</span><span aria-hidden="true">▼</span>
+                </button>
+                <div class="dropdown-menu" id="menuAset">
+                    <div class="dropdown-item" tabindex="0">
+                        <span>Kode Cabang</span><span aria-hidden="true">▶</span>
+                        <div class="submenu">
+                            <a href="#cabang-tdm01" onclick="pilihData('Kode Cabang: TDM-01')">TDM-01 (Pusat)</a>
+                            <a href="#cabang-tdm02" onclick="pilihData('Kode Cabang: TDM-02')">TDM-02 (Cabang A)</a>
+                            <a href="#cabang-tdm03" onclick="pilihData('Kode Cabang: TDM-03')">TDM-03 (Cabang B)</a>
+                            <a href="#cabang-tdm04" onclick="pilihData('Kode Cabang: TDM-04')">TDM-04 (Cabang C)</a>
+                            <a href="#cabang-tdm05" onclick="pilihData('Kode Cabang: TDM-05')">TDM-05 (Cabang D)</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-item" tabindex="0">
+                        <span>MD</span><span aria-hidden="true">▶</span>
+                        <div class="submenu">
+                            <a href="#pc-it01" onclick="pilihData('Computer: PC-TDM-IT01')">PC-TDM-IT01</a>
+                            <a href="#pc-fin02" onclick="pilihData('Computer: PC-TDM-FIN02')">PC-TDM-FIN02</a>
+                            <a href="#pc-hrd03" onclick="pilihData('Computer: PC-TDM-HRD03')">PC-TDM-HRD03</a>
+                            <a href="#nb-mgr01" onclick="pilihData('Computer: NB-TDM-MGR01')">NB-TDM-MGR01</a>
+                            <a href="#srv-main" onclick="pilihData('Computer: SRV-TDM-MAIN')">SRV-TDM-MAIN</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        
-    <!-- Header -->
+    </section>
 
-        <section id="header" class="main-header">
-            <div class="container">
-
-                <div class="row">
-                    <nav class="navbar navbar-default">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#site-nav-bar" aria-expanded="false">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                        </div>
-
-                        <div class="collapse navbar-collapse" id="site-nav-bar">
-                            <ul class="nav navbar-nav">
-                                <li class="active"><a href="index.html">Home</a></li>
-                                <li><a href="about.html">About</a></li>
-                                <li><a href="shop.html">Shop</a></li>
-                                <li><a href="faq.html">FAQ</a></li>
-                                <li><a href="contact.html">Contact</a></li>
-                            </ul>
-                        </div><!-- /.navbar-collapse -->
-                    </nav>
-                </div>
-                
-                <div class="intro row">
-                    <div class="overlay"></div>
-                    <div class="col-sm-6 col-sm-offset-6">
-                        <h2 class="header-quote">IT SUPPORT</h2>
-                        <p>
-                            TUNAS DWIPA MATRA
-                        </p>
-                        <h1 class="header-title">Robot<br><span class="thin">Factory</span></h1>
-                    </div>
-                </div> <!-- /.intro.row -->
-            </div> <!-- /.container -->
-            <div class="nutral"></div>
-        </section> <!-- /#header -->
-
-    <!-- Product -->
-
-        <section id="product" class="product">
-            <div class="container section-bg">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="title-box">
-                            <h2 class="title">Welcom to our <span>IT SUPPORT TDM</span></h2>
-                            <a href="#" class="btn btn-default btn-robot">view products</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="porduct-box">
-                            <img class="img-responsive" src="assets/images/product-1.jpg" alt="product">
-                            <h3 class="product-title">Space robot</h3>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="porduct-box">
-                            <img class="img-responsive" src="assets/images/product-2.jpg" alt="product">
-                            <h3 class="product-title">Sports robot</h3>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="porduct-box">
-                            <img class="img-responsive" src="assets/images/product-3.jpg" alt="product">
-                            <h3 class="product-title">Toy for kids</h3>
-                        </div>
-
-                    <!DOCTYPE html>
-<html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tombol Combo Box Data Aset</title>
-<style>
-  /* Latar belakang contoh agar tombol terlihat kontras */
-  body {
-    background-color: #161618;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    padding: 30px;
-    color: #e0e0e0;
-  }
-
-  /* Container utama dropdown */
-  .dropdown-aset {
-    position: relative;
-    display: inline-block;
-  }
-
-  /* Desain Tombol Utama 3D (Sesuai spesifikasi ukuran & tema) */
-  .btn-aset {
-    height: 26px; /* Tinggi 24px - 28px */
-    padding: 0 10px; /* Padding horizontal 8px - 12px */
-    font-size: 12px; /* Ukuran teks 12px - 13px */
-    font-weight: 600;
-    color: #ffffff;
-    border-radius: 5px; /* Kelengkungan sudut 4px - 6px */
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    
-    /* Efek 3D Metalik Gelap & Aksen Merah */
-    background: linear-gradient(180deg, #323236 0%, #1c1c1f 100%);
-    border: 1px solid #48484e;
-    border-bottom: 2px solid #0e0e10;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-    transition: all 0.15s ease;
-  }
-
-  /* Efek saat kursor diarahkan (Hover) */
-  .btn-aset:hover {
-    border-color: #d93829;
-    box-shadow: 0 0 8px rgba(217, 56, 41, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  }
-
-  /* Efek saat tombol ditekan */
-  .btn-aset:active {
-    transform: translateY(1px);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
-  }
-
-  /* Kotak Menu Dropdown Utama */
-  .dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 30px;
-    left: 0;
-    min-width: 170px;
-    background-color: #1f1f23;
-    border: 1px solid #3a3a40;
-    border-radius: 5px;
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.8);
-    z-index: 1000;
-    padding: 4px 0;
-  }
-
-  /* Menampilkan menu saat aktif */
-  .dropdown-aset.show .dropdown-menu {
-    display: block;
-  }
-
-  /* Item di dalam dropdown */
-  .dropdown-item {
-    position: relative;
-    padding: 6px 12px;
-    font-size: 12px;
-    color: #e0e0e0;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: background 0.15s;
-  }
-
-  .dropdown-item:hover {
-    background-color: #2d2d33;
-    color: #ff5242;
-  }
-
-  /* Submenu (Muncul di samping kanan saat item di-hover) */
-  .submenu {
-    display: none;
-    position: absolute;
-    top: -5px;
-    left: 100%;
-    min-width: 180px;
-    max-height: 220px; /* Bisa di-scroll jika datanya banyak */
-    overflow-y: auto;
-    background-color: #1f1f23;
-    border: 1px solid #3a3a40;
-    border-radius: 5px;
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.8);
-    padding: 4px 0;
-  }
-
-  .dropdown-item:hover > .submenu {
-    display: block;
-  }
-
-  .submenu a {
-    display: block;
-    padding: 6px 12px;
-    font-size: 12px;
-    color: #cccccc;
-    text-decoration: none;
-    transition: background 0.15s;
-  }
-
-  .submenu a:hover {
-    background-color: #8f1d14;
-    color: #ffffff;
-  }
-
-  /* Kustomisasi Scrollbar untuk daftar yang panjang */
-  .submenu::-webkit-scrollbar {
-    width: 5px;
-  }
-  .submenu::-webkit-scrollbar-thumb {
-    background: #48484e;
-    border-radius: 3px;
-  }
-</style>
-</head>
-<body>
-
-  <!-- STRUKTUR TOMBOL COMBO BOX -->
-  <div class="dropdown-aset" id="dropdownAset">
-    <button class="btn-aset" onclick="toggleDropdown()">
-      <span>DATA ASET</span>
-      <span style="font-size: 9px;">▼</span>
-    </button>
-
-    <div class="dropdown-menu">
-      
-      <!-- Pilihan 1: Kode Cabang -->
-      <div class="dropdown-item">
-        <span>Kode Cabang</span>
-        <span style="font-size: 10px;">▶</span>
-        <div class="submenu">
-          <!-- Tambahkan atau ubah daftar Kode Cabang di bawah ini -->
-          <a href="#cabang-tdm01" onclick="pilihData('Kode Cabang: TDM-01')">TDM-01 (Pusat)</a>
-          <a href="#cabang-tdm02" onclick="pilihData('Kode Cabang: TDM-02')">TDM-02 (Cabang A)</a>
-          <a href="#cabang-tdm03" onclick="pilihData('Kode Cabang: TDM-03')">TDM-03 (Cabang B)</a>
-          <a href="#cabang-tdm04" onclick="pilihData('Kode Cabang: TDM-04')">TDM-04 (Cabang C)</a>
-          <a href="#cabang-tdm05" onclick="pilihData('Kode Cabang: TDM-05')">TDM-05 (Cabang D)</a>
-        </div>
-      </div>
-
-      <!-- Pilihan 2: MD (Computer Name) -->
-      <div class="dropdown-item">
-        <span>MD</span>
-        <span style="font-size: 10px;">▶</span>
-        <div class="submenu">
-          <!-- Tambahkan atau ubah daftar Computer Name di bawah ini -->
-          <a href="#pc-it01" onclick="pilihData('Computer: PC-TDM-IT01')">PC-TDM-IT01</a>
-          <a href="#pc-fin02" onclick="pilihData('Computer: PC-TDM-FIN02')">PC-TDM-FIN02</a>
-          <a href="#pc-hrd03" onclick="pilihData('Computer: PC-TDM-HRD03')">PC-TDM-HRD03</a>
-          <a href="#nb-mgr01" onclick="pilihData('Computer: NB-TDM-MGR01')">NB-TDM-MGR01</a>
-          <a href="#srv-main" onclick="pilihData('Computer: SRV-TDM-MAIN')">SRV-TDM-MAIN</a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <script>
-    // Fungsi membuka/menutup menu saat tombol diklik
-    function toggleDropdown() {
-      document.getElementById("dropdownAset").classList.toggle("show");
-    }
-
-    // Menutup menu jika user mengklik di luar area tombol
-    window.onclick = function(event) {
-      if (!event.target.closest('.dropdown-aset')) {
-        var dropdowns = document.getElementsByClassName("dropdown-aset");
-        for (var i = 0; i < dropdowns.length; i++) {
-          dropdowns[i].classList.remove('show');
+    <script>
+        function toggleDropdown() {
+            var dropdown = document.getElementById('dropdownAset');
+            var isOpen = dropdown.classList.toggle('show');
+            dropdown.querySelector('button').setAttribute('aria-expanded', String(isOpen));
         }
-      }
-    }
 
-    // Contoh aksi ketika salah satu item dipilih (bisa diganti dengan link URL asli)
-    function pilihData(namaItem) {
-      console.log("Anda memilih: " + namaItem);
-      // alert("Membuka data: " + namaItem); // Hapus tanda '//' di depan jika ingin memunculkan pop-up
-    }
-  </script>
+        window.addEventListener('click', function (event) {
+            var dropdown = document.getElementById('dropdownAset');
+            if (!event.target.closest('.dropdown-aset')) {
+                dropdown.classList.remove('show');
+                dropdown.querySelector('button').setAttribute('aria-expanded', 'false');
+            }
+        });
 
+        function pilihData(namaItem) {
+            console.log('Anda memilih: ' + namaItem);
+        }
+    </script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
 </body>
-</html>
-                
-                            
-    </body>
 </html>
